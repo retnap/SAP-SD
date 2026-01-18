@@ -125,6 +125,22 @@
 
 <br> 
 
+  + **Satış Bölgesi:** Müşterilerin coğrafi bölgelerini sınıflandırmak için kullanılır.
+
+  + **Müşteri Grubu:** Müşterileri spesifik bir özellikleri bakımından gruplandırmak için kullanılır (Toptancılar veya Perakendeciler gibi).
+
+  + **Sipariş Olasılığı:** Müşterinin teklif veya teslimat planlarını satış siparişinin bir parçası olarak onaylama olasılığı.
+
+  + **Döviz Kuru Türü:** Müşterinin ülkesine bağlı olarak döviz kuru türünü belirlemek için kullanılır.
+
+  + **Ürün Teklif Prosedürü:** Ürün teklif prosedüründe ürün teklifinin satış belgesinde nasıl görüntüleneceği belirlenir.
+
+  + **Fiyat Grubu:** Aynı fiyatlandırma gereksinimlerini paylaşan müşteri grubu.
+
+  + **Müşteri Fiyatlandırma Prosedürü:** Bu alanın değeri fiyatlandırma prosedürünü belirlemek için sistem tarafından dikkate alınacaktır.
+
+  + **Fiyat Listesi:** Bu alanın değeri bir koşul tablosu oluşturmak için dikkate alınabilir. 
+
 + Ardından sağ üstte açılan **Satış ve Dağıtım** butonuna tıkladıktan sonra açılan ekranlarda gerekli bilgileri dolduruyoruz.  
 
 <br> 
@@ -132,11 +148,53 @@
 <img width="994" height="517" alt="042_flcu01-bilgiler-1" src="https://github.com/user-attachments/assets/4e1e0a93-c847-4331-ad7c-2308fc92501a" />
 
 <br>
+
++ **Teslimat Önceliği:** Teslimat önceliği bir kaleme atanır. Teslimat önceliğini ya bir **malzeme** için ya da **müşteri** ve **malzeme** kombinasyonu için atayabiliriz.
+
++ **Sevkiyat Koşulu:** Bu alanın değeri **nakliye noktasını** (çıkış teslimatı) belirlemek için sistem tarafından dikkate alınır; ayrıca malzeme ana verisinden yükleme grubu ve satır kaleminin teslim edilen teslimat üretim yerinden birlikte alınır.
+
++ **Teslimatı Yapan ÜY:** Malzemelerin müşteriye **hangi teslimat noktasından** teslim edileceğini belirtebiliriz.
+
++ **Kısmi Teslimatlar:** Bu bir satış siparişinin bir seferde tamamen teslim edilmesi gerekip gerekmediğini veya siparişin kısmen teslim edilip birden fazla teslimatla tamamlanabileceğini belirtir.
+
++ **Kısmi Teslimat/Kalem:** İşletme, kısmi teslimatlara izin vermek istiyorsa burada belirtebiliriz.
+
++ **Teslimat Fazlası Tol:** Satır kalemi yalnızca **"9"** kadar kısmi teslimatlara bölünebilir. 
+
 <br> 
 
 <img width="1000" height="763" alt="04_flcu01-bilgiler-2" src="https://github.com/user-attachments/assets/3a3166b9-93bf-4823-8d5a-540151530737" />
 
 <br> 
+
+**Prim:** İşletme bu müşteri için indirim işlemleri yapmak istiyorsa. 
+
+**Fatura Terminleri:** Müşteriler için fatura tarihlerini belirleyen takvimi tanımlar. 
+
+**Hesap tayin grubu - müşteri:** Gelir hesaplarını, satış indirimlerini vb. belirlemek için bu alanı kullanabiliriz. 
+
+**Hesaplanan KDV:** Müşterinin ülkesinin vergi yapısına göre vergi yükümlülüğünü belirtir. Müşterinin satış vergilerine tabi olup olmadığını belirtmek için **vergi sınıflandırmasını** kullanırız. 
+
+<br>
+
+<img width="954" height="493" alt="08_flcu01_muhatap_rolleri_sekmesi" src="https://github.com/user-attachments/assets/231ae8b3-0a68-42b0-b5b4-beda4e424f8e" />
+
++ **SV-Sipariş Veren:** Satın alma siparişini veren müşteriyi temsil eder.
+  + Satış işleminin ana tarafıdır ve tüm satışla ilgili detaylar bu partner üzerine kaydedilir.
+ 
++ **FA-Fatura Alıcısı:** Faturanın gönderileceği adresi tanımlar.
+  + Faturanın gönderileceği ve ödeme yükümlülüğünün olduğu tarafı belirtir.
+  + Bu, satış yapılan taraf veya teslimat yapılan taraf ile aynı olabilir ya da farklı bir adres olabilir.
+ 
++ **ÖD-Ödeyen (RG):** Faturaları ödeyecek olan müşteriyi tanımlar.
+  + Ödemeyi yapacak olan tarafı belirtir.
+  + Bu, diğer partnerlerden farklı olarak bir taraf olabilir.
+ 
++ **MG - Malı Teslim Alan:** Ürünlerin teslim edileceği adresi belirtir.
+  + Malların fiziksel olarak teslim edileceği yeri tanımlar.
+  + Bu, satış yapılan taraf ile yanı olabilir veya farklı bir adres olabilir.
+ 
+<br>    
 
 + Gerekli bilgileri doldurduktan sonra bu sefer **FLCU00 - Müşteri (FI)** muhatap rolünü seçiyoruz.
 
