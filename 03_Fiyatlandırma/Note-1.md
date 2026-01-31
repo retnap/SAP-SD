@@ -16,7 +16,7 @@
 + Teknik olarak:
   + Koşul tablosu = **Anahtar alan seti**
  
-+ Yani SAP'ye diyoruz ki: *"Fiyatı hesaplarken bu alanlara bak"
++ Yani SAP'ye diyoruz ki: *"Fiyatı hesaplarken bu alanlara bak"*
 
 <br> 
 
@@ -39,7 +39,7 @@
     2. tabloya geçer
   + Orada bulursa durur
  
-+ 📌 **Bulunca durur, devam etmez
++ 📌 **Bulunca durur, devam etmez.**
 
 <br> 
 
@@ -164,6 +164,91 @@
 
 ---
 
+---
+
+# VK11 ile PR00 Koşul Kaydı Oluşturma 
+
++ Yapılacak işlemlerle birlikte **VK11 işlem kodu** kullanılarak **PR00 (Liste Fiyatı)** koşul kaydının nasıl ve neden oluşturulduğu adım adım açıklanacaktır.
+
++ Amaç; satış belgelerinde (VA01) malzeme fiyatının **otomatik olarak gelmesini sağlamak** ve fiyatlandırma mantığını doğru şekilde kurmaktır.
+
++ Bu çalışmada VK11 ile **STECH firmasına ait bir malzeme için liste fiyatı (PR00) tanımlandı**.
+
+## Neden PR00 Koşul Türü ? 
+
++ VK11 işlem koduna girildiğinde ilk olarak **Koşul Türü** sorulur.
+
++ **PR00**, standart **liste fiyatı** koşul türüdür.
+  + Fiyatlandırma şemasının temelidir.
+  + İndirimler, vergiler ve ek masraflar genellikle PR00 üzerinden hesaplanır.
+ 
++ Mantık: *"Bu malzemenin satıştaki temel fiyatını tanımlıyorum."*
+
+<br> 
+
+<img width="750" height="438" alt="01_VK11-01" src="https://github.com/user-attachments/assets/aa33b918-fe3c-42da-83f8-79011a472e9a" />
+
++ PR00 koşul türü seçildikten sonra SAP, tanımlı **koşul tablolarını** listeler.
+
++ Eğitim sunucusunda üç farklı koşul tablosu seçeneği görüntülenmiştir.
+
++ **1. Müşteri/malzeme (onay durumu ile)**
+  + Aynı malzeme, farklı müşterilere farklı fiyat
+  + Müşteri bazlı özel fiyatlar için kullanılır
+ 
++ **2. Fiyat listesi tipi/para birimi/malzeme (onay durumu ile)**
+  + Temel fiyatı, fiyat listesi tipi - para birimi - malzeme kombinasyonu ile yönetebiliriz.
+ 
++ **3. Malzeme (onay durumu ile)**
+  + Fiyat **sadece malzemeye bağlıdır**
+  + Malzemenin onay durumuna göre kontrol yapılır
+ 
++ Bu senaryoda amaç: *"STECH Akıllı Sensör için genel bir liste fiyatı tanımlamak"*
+
++ Bu nedenle **Malzeme (onay durumu ile) seçilmiştir.
+
+<br> 
+
+<img width="1131" height="289" alt="02_VK11-02" src="https://github.com/user-attachments/assets/b386cdd2-6d82-4b06-9878-6026d00b7449" />
+
++ Seçim yapıldıktan sonra **Koşul Kaydı Girişi** ekranı açılır.
+
++ Girilen alanlar:
+  + Satış Organizasyonu: Z113
+  + Dağıtım Kanalı: 10
+  + Malzeme: 1056 - STECH Akıllı Sensör
+ 
+📌 Bu alanlar **koşul tablosunun anahtarıdır**.
+
++ SAP bu kombinasyonu satış belgesinde gördüğünde ilgili fiyatı arar.
+
++ *"1056 numaralı STECH Akıllı Sensör'ün 1 adet liste fiyatı = 1250 TRY'dir."*
+
+<br> 
+
+<img width="740" height="423" alt="03_VK11-03" src="https://github.com/user-attachments/assets/48d54c1c-26f6-4bd4-9f71-ebd009e70548" />
+
++ Bilgileri girip enter tuşuna bastıktan sonra, fiyat satırı üzerinde **malzeme satırına çift tıklandığında**, **ölçek (scale)** ekranı açılır.
+
++ Ölçek:
+  + Miktara bağlı fiyat farklılaştırmasıdır
+  + Toplu alım indirimleri bu yapı ile tanımlanır
+ 
++ Ölçek ile akıllı sensörden 10 tane alınması durumunda fiyatın 1,150 TRY fiyatına düşeceği belirlenmiştir.
+
++ Önceki ekrana gelip koşul kaydı kaydedilir ve aktif hale gelmiş olur.
+
+## Genel Özet 
+
++ Bu çalışmada:
+  + VK11 ile **PR00 liste fiyatı** tanımlandı
+  + Fiyat **malzeme bazında** oluşturuldu
+  + Satış organizasyonu ve dağıtım kanalı ile ilişkilendirildi
+  + Geçerlilik tarihleri belirlendi
+  + Satış belgelerinde otomatik fiyat gelmesi sağlandı
+ 
++ Sonuç olarak:  
+  + **STECH firmasına ait 1056 numaralı malzeme için SD fiyatlandırma altyapısı kurulmuştur**.  
 
 
 
